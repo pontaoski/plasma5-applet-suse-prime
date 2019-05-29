@@ -118,7 +118,7 @@ Item {
             var stdout = data["stdout"]
 
             if (exitCode == 0) {
-                executable.exec("qdbus org.kde.ksmserver /KSMServer logout 1 1 3");
+                executable.exec("qdbus-qt5 org.kde.ksmserver /KSMServer logout 1 1 3");
             } else {
                 
             }
@@ -193,7 +193,7 @@ Item {
                 iconSource: "system-reboot"
                 text: qsTr("Reboot")
                 onClicked: {
-                    executable.exec("qdbus org.kde.ksmserver /KSMServer logout 1 1 3", function(){});
+                    executable.exec("qdbus-qt5 org.kde.ksmserver /KSMServer logout 1 1 3", function(){});
                 }
             }
         }
