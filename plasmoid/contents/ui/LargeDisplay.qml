@@ -40,7 +40,7 @@ Item {
             target: getWithStdout
             onExited: {
                 stdoutItem.outputText = stdout.replace('\n', ' ').trim()
-                if (stdoutItem.outputText.toLowerCase().includes("nvidia")) {
+                if (stdoutItem.outputText.toLowerCase().includes(": nvidia")) {
                     stdoutItem.activeCard = "NVidia"
                     stdoutItem.inactiveCard = "Intel"
                 } else {
@@ -64,10 +64,10 @@ Item {
         }
 
         function getSwitchCommand() {
-            if (stdoutItem.outputText.toLowerCase().includes("nvidia")) {
-                return "kdesu /usr/sbin/prime-select intel";
+            if (stdoutItem.outputText.toLowerCase().includes(": nvidia")) {
+                return "kdesu /usr/sbin/prime-select boot intel";
             } else {
-                return "kdesu /usr/sbin/prime-select nvidia";
+                return "kdesu /usr/sbin/prime-select boot nvidia";
             }
         }
     }
